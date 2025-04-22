@@ -1,0 +1,102 @@
+let rock = document.getElementById('rock');
+let paper = document.getElementById('paper');
+let sissor = document.getElementById('sissor');
+let reset = document.getElementById('reset');
+
+let mychoise;
+let comptChoise;
+
+let finalResult;
+
+/**/
+let result;
+let score = localStorage.getItem('result')
+
+reset.onclick = function(){
+   localStorage.clear();
+   update()
+}
+
+function update(score){
+   result = score ? JSON.parse(score) : {
+   win: 0,
+   loss: 0,
+   tai: 0,
+} 
+}
+update(score);
+/**/
+
+
+let comptcoosed = function() {
+   let comp = Math.round(Math.random()*8);/*2*/
+   if (comp == 0 || comp ==8 || comp == 5) {
+      comptChoise = 'rock'
+   } else if (comp == 1 || comp == 7 || comp == 4) {
+      comptChoise = 'paper'
+   } else {
+      comptChoise = 'sissor'/*236*/
+   }
+}
+
+/**/
+let conclusion = function(){
+   if (mychoise == 'rock' && comptChoise == 'paper' || 
+       mychoise == 'paper' && comptChoise == 'sissor' || 
+       mychoise == 'sissor' && comptChoise == 'rock' ) {
+         finalResult = 'you loss'
+         result.loss++ ;
+   } else if (mychoise == 'paper' && comptChoise == 'rock' || mychoise == 'rock' && comptChoise == 'sissor' ||
+      mychoise == 'sissor' && comptChoise == 'paper') {
+          finalResult = 'you win'
+          result.win++
+   } else {
+          finalResult = 'match tai'
+          result.tai++
+   }
+}
+
+
+/**/
+rock.onclick = function(){
+       mychoise = 'rock';
+       comptcoosed();
+       conclusion();
+       localStorage.setItem("result" , JSON.stringify(result))
+       show()
+   };
+   
+paper.onclick = function() {
+       mychoise = 'paper'
+       comptcoosed();
+       conclusion();
+       localStorage.setItem("result" , JSON.stringify(result));
+       show()
+   }; 
+   
+sissor.onclick = function() {
+       mychoise = 'sissor';
+       comptcoosed();
+       conclusion();
+       localStorage.setItem("result" , JSON.stringify(result));
+       show()
+   };
+
+
+/*final result on web page*/
+
+let mychoise1 = document.getElementById('my-choise');
+let botchose = document.getElementById('bot-chose');
+let result1 = document.getElementById('result');
+let score1 = document.getElementById('score');
+
+function show(){
+   mychoise1.innerText = `You choosed ${mychoise}`;
+   botchose.innerText = `Bot choosed ${comptChoise}`;
+   result1.innerText = `result :- ${finalResult}`;
+   score1.innerText =` 😎 win: ${result.win}  ||😵 loss: ${result.loss} || 😶 Tai: ${result.tai}`
+}
+
+
+
+
