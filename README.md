@@ -41,14 +41,8 @@ Play against the computer and test your luck and strategy in this classic game!
 
 ---
 
-## Screenshots
-
-*(Add game UI screenshots here if available)*
-
----
-
 ## Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/rock-paper-scissors.git
+   git clone https://github.com/amankr01/Rock-paper-scissor.git
