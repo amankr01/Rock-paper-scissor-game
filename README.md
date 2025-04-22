@@ -37,8 +37,7 @@ Play against the computer and test your luck and strategy in this classic game!
 ## Live Demo
 
 **Play the game here:**  
-[![Live Demo](https://img.shields.io/badge/Play%20Now-Live-green?style=for-the-badge)](#)  
-*Replace the `#` with your actual game link.*
+[![Live Demo](https://img.shields.io/badge/Play%20Now-Live-green?style=for-the-badge)](https://amankr01.github.io/Rock-paper-scissor-game/) 
 
 ---
 
