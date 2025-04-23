@@ -1,6 +1,6 @@
 let rock = document.getElementById('rock');
 let paper = document.getElementById('paper');
-let sissor = document.getElementById('sissor');
+let sissor = document.getElementById('scissor');
 let reset = document.getElementById('reset');
 
 let mychoise;
@@ -15,6 +15,10 @@ let score = localStorage.getItem('result')
 reset.onclick = function(){
    localStorage.clear();
    update()
+    mychoise1.innerText = ` please choose any weapon from above `;
+    botchose.innerText = ``;
+    result1.innerText = ``;
+    score1.innerText = ` 😎 win: 0  ||😵 loss: 0 || 😶 Tai: 0}`;
 }
 
 function update(score){
@@ -83,6 +87,7 @@ sissor.onclick = function() {
    };
 
 
+/*addind css*/
 /*final result on web page*/
 
 let mychoise1 = document.getElementById('my-choise');
@@ -91,8 +96,8 @@ let result1 = document.getElementById('result');
 let score1 = document.getElementById('score');
 
 function show(){
-   mychoise1.innerText = `You choosed ${mychoise}`;
-   botchose.innerText = `Bot choosed ${comptChoise}`;
+   mychoise1.innerHTML = `You choosed <span class="highlight">${mychoise}</span>`;
+   botchose.innerHTML = `Bot choosed <span class="highlight2">${comptChoise} </span> `;
    result1.innerText = `result :- ${finalResult}`;
    score1.innerText =` 😎 win: ${result.win}  ||😵 loss: ${result.loss} || 😶 Tai: ${result.tai}`
 }
